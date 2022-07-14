@@ -3,14 +3,22 @@ var router = express.Router();
 
 const skillsCtrl = require('../controllers/skills');
 
+
 /* GET users listing. */
 router.get('/', skillsCtrl.index);
-// get /skills   create a new skill
+// get /skills  (show form for create a new skill)
 router.get('/new', skillsCtrl.new);
-// GET /skills/:id
+// POST /skills (create functionality)
+router.post('/', skillsCtrl.create);
+// GET /skills/:id/edit (show form for edit)
+router.get('/:id/edit', skillsCtrl.edit);
+//PUT /skills/:id (update functionality, for doing the edit)
+router.put('/:id/', skillsCtrl.update);
+//DELETE /skills/:id (delete functionality)
+router.delete('/:id', skillsCtrl.delete);
+// GET /skills/:id (show individual)
 router.get('/:id', skillsCtrl.show);
 
-// router.get('/skills/')
 
 module.exports = router;
 
